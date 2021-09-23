@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form id="form_data" enctype='multipart/form-data' >
+	<label>status</label>
+	<input type="text" name="status" id="status" />
+	<label>Bug ID</label>
+	<input type="text" name="bugid" id="bugid" />
+	<input type="file" name="img" id="img" multiple/>
+	<input type="submit" />
+</form>
+
+<script src="component/js/jquery.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+		
+		$("#form_data").submit(function(e){
+			e.preventDefault();
+			var formData = new FormData(this);
+			alert(formData);
+			console.log(formData);
+			
+			$.ajax({
+				url:"[[${@environment.getProperty('api.base.path')}]]/uploadimage",
+				type:"POST",
+				data:formData,
+				processData: false, 
+		        contentType: false,
+		        cache: false,
+				success: function(data){
+					alert(data);
+				}
+					
+			})
+			return false;
+		})
+		
+	})
+</script>
+
+</body>
+</html>

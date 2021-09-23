@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="component/js/jquery.min.js"></script>
+
+</head>
+<body>
+<h1>Index Page</h1>
+
+<input type="text" name="name" id="name" />
+<input type="submit" id="submit"/>
+
+
+<input type="text" name="fname" id="fname" />
+<input type="submit" id="ssubmit"/>
+
+
+<a href="/testing" >Move</a>
+
+<script>
+	$(document).ready(function(){
+		alert("Working");
+		$("#submit").click(function(){
+			var name = $("#name").val();
+			//alert(name);
+			$.ajax({
+				url:"[[${@environment.getProperty('api.base.path')}]]/tester",
+				type:"GET",
+				data:{name:name},
+				success:function(data){
+					alert(data);
+				}	
+			})
+				
+		})
+		
+			$("#ssubmit").click(function(){
+			var name = $("#fname").val();
+			//alert(name);
+			$.ajax({
+				url:"[[${@environment.getProperty('api.base.path')}]]/read",
+				type:"POST",
+				data:{name:name},
+				success:function(data){
+					alert(data);
+				}	
+			})
+				
+		})
+		
+		
+		
+	})
+</script>
+</body>
+</html>

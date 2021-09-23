@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+<h1 th:text="${session.employeedata}"></h1>
+
+<form action="">
+	<div class="form-group">
+		<label>Bug Name </label>
+		<input type="text" name="bugname" id="bugname" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label>Category</label>
+		<input type="text" name="category" id="category" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label>Platform</label>
+		<input type="text" name="platform" id="platform" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label>Priority</label>
+		<select name="priority" class="form-control">
+			<option value="high">High</option>
+			<option value="medium">Medium</option>
+			<option value="low">Low</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label>Reporter</label>
+		<input type="text" name="reporter" id="reporter" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label>Bug ID</label>
+		<input type="text" name="bugid" id="bugid" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label>Image</label>
+		<input type="file" name="file" id="file" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label>Summary</label>
+		<textarea rows="4" cols="" class="form-control"></textarea>
+	</div>
+	<div class="form-group">
+		<input type="submit" class="btn btn-primary" />
+		<input type="hidden" name="" />
+	</div>
+	
+	
+</form>
+
+
+</body>
+</html>

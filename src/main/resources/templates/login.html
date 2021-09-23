@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="component/assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="component/assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="component/assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+</head>
+<body>
+<div id="wrapper" style="background:none;">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Binary admin</a> 
+            </div>
+  <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+        </nav>   
+        <div id="page-wrapper" style="background:none;" >
+            <div id="page-inner">
+                
+               <div class="row">
+                <div class="col-md-12">
+                    <!-- Form Elements -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Login form
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form role="form" id="form-data">
+                                           <div class="form-group">
+                                            <label>Email</label>
+                                            <input class="form-control" name="email" id="email" placeholder="Enter Email" />
+                                        	</div>
+                                        	<div class="form-group">
+                                            <label>Password</label>
+                                            <input class="form-control" name="password" id="password" placeholder="Enter Password" />
+                                        	</div>
+                                       		<button type="submit" class="btn btn-default">Login</button>
+										</form>
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+         </div>
+       </div>
+
+<script src="component/js/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		
+		$("#form-data").submit(function(){
+			var form_data = $(this).serialize();
+			alert(form_data);
+			
+			$.ajax({
+				url:"[[${@environment.getProperty('api.base.path')}]]/loginuser",
+				type:"POST",
+				data:form_data,
+				success: function(data){
+					alert(data);
+				}
+					
+			})
+			return false;
+		})
+		
+	})
+</script>
+
+</body>
+</html>
